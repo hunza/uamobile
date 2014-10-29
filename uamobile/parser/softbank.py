@@ -17,6 +17,7 @@ class SoftBankUserAgentParser(UserAgentParser):
         # J-PHONE/2.0/J-SH03 (compatible; Y!J-SRD/1.0; http://help.yahoo.co.jp/help/jp/search/indexing/indexing-27.html)
         # Vodafone/1.0/V705SH (compatible; Y!J-SRD/1.0; http://help.yahoo.co.jp/help/jp/search/indexing/indexing-27.html)
         # SoftBank/1.0/913SH/SHJ001/SN000123456789000 Browser/NetFront/3.4 Profile/MIDP-2.0 (symphonybot1.froute.jp; +http://search.froute.jp/howto/crawler.html)
+        # SoftBank/1.0/920SH/SHJ001 Browser/NetFront/3.4 Profile/MIDP-2.0 Configuration/CLDC-1.1 AppEngine-Google; (+http://code.google.com/appengine; appid: s~google.com:mobile-checker)
         ua = SOFTBANK_CRAWLER_RE.sub('', useragent)
         ua = ua.strip().split(' ')
 
@@ -53,7 +54,8 @@ class SoftBankUserAgentParser(UserAgentParser):
             vendor = vendor_info[:-4]
             vendor_version = vendor_info[-4:]
 
-        info = dict([x.split('/', 1) for x in ua[1:] if x])
+        pairs = [x.split('/', 1) for x in ua[1:] if x]
+        info = dict([pair for pair in pairs if len(pair) == 2])
 
         return { 'packet_compliant': True,
                  'version'         : version,

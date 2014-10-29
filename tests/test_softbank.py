@@ -204,6 +204,7 @@ def test_crawler():
     for useragent in ('Vodafone/1.0/V802SH/SHJ002 Browser/UP.Browser/7.0.2.1 (compatible; ichiro/mobile goo; +http://help.goo.ne.jp/door/crawler.html)',
                       'J-PHONE/3.0/J-SH10 (compatible; LD_mobile_bot; +http://helpguide.livedoor.com/help/search/qa/grp627)',
                       'SoftBank/1.0/913SH/SHJ001/SN000123456789000 Browser/NetFront/3.4 Profile/MIDP-2.0 (symphonybot1.froute.jp; +http://search.froute.jp/howto/crawler.html)',
+                      'SoftBank/1.0/920SH/SHJ001 Browser/NetFront/3.4 Profile/MIDP-2.0 Configuration/CLDC-1.1 AppEngine-Google; (+http://code.google.com/appengine; appid: s~google.com:mobile-checker)',
                       ):
         yield func, useragent
 
